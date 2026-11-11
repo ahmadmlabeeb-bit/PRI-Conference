@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المؤتمر الدولي السادس للفيزياء والتطبيقات الحديثة</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    }
+
+    :root {
+      --primary: #0b3d91;
+      --secondary: #1e88e5;
+      --accent: #ffc107;
+      --dark: #10243d;
+      --light: #f5f8fc;
+      --text: #333;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--dark), var(--primary));
+      color: #fff;
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 3px 12px rgba(0,0,0,.15);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero */
+    .hero {
+      background:
+        linear-gradient(rgba(11,61,145,.85), rgba(16,36,61,.9)),
+        url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80") center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 110px 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 750px;
+      margin: auto;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #222;
+      padding: 13px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      background: #fff;
+      transform: translateY(-3px);
+    }
+
+    .hero-info {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+      font-size: 1.05rem;
+    }
+
+    .hero-info div {
+      background: rgba(255,255,255,.12);
+      padding: 12px 22px;
+      border-radius: 10px;
+    }
+
+    /* Sections */
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #666;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 28px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.07);
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    /* Program */
+    .program {
+      background: #fff;
+    }
+
+    .timeline {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+      background: var(--light);
+      padding: 18px 22px;
+      border-radius: 12px;
+      border-right: 5px solid var(--secondary);
+    }
+
+    .time {
+      font-weight: bold;
+      color: var(--primary);
+      min-width: 110px;
+    }
+
+    /* Speakers */
+    .speaker {
+      text-align: center;
+    }
+
+    .speaker img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 12px;
+      border: 4px solid var(--secondary);
+    }
+
+    /* Call for papers */
+    .call {
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      color: #fff;
+      text-align: center;
+    }
+
+    .call ul {
+      list-style: none;
+      margin: 25px 0;
+    }
+
+    .call li {
+      background: rgba(255,255,255,.1);
+      margin: 10px auto;
+      padding: 12px;
+      max-width: 620px;
+      border-radius: 8px;
+    }
+
+    /* Registration */
+    form {
+      max-width: 620px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.08);
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 14px 0 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      font-size: 1.05rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    button:hover {
+      background: var(--secondary);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        justify-content: center;
+      }
+
+      .timeline-item {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">مؤتمر <span>الفيزياء-معهد البحوث الفيزيقية</span></div>
+
+    <nav>
+      <ul>
+        <li><a href="#about">عن المؤتمر</a></li>
+        <li><a href="#topics">المحاور</a></li>
+        <li><a href="#program">البرنامج</a></li>
+        <li><a href="#speakers">المتحدثون</a></li>
+        <li><a href="#call">المشاركة</a></li>
+        <li><a href="#register">التسجيل</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>المؤتمر الدولي السادس للفيزياء والتطبيقات الحديثة</h1>
+	<h2>المؤتمر الدولي السادس للفيزياء والتطبيقات الحديثة</h2>
+
+    <p>
+      مؤتمر علمي يجمع الباحثين والأساتذة والطلاب لعرض أحدث الأبحاث والتطبيقات
+      في الفيزياء النظرية والتطبيقية، وتعزيز التعاون العلمي بين الجامعات ومراكز البحث.بالمركز القومى للبحوث
+    </p>
+
+    <a href="#register" class="btn">سجّل الآن</a>
+
+    <div class="hero-info">
+      <div>📅 15–17 أبريل 2027</div>
+      <div>📍 قاعة المؤتمرات – المعهد</div>
+      <div>🎓 حضورًا وعن بُعد</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>عن المؤتمر</h2>
+      <p>
+        يهدف المؤتمر إلى توفير منصة علمية لعرض الأبحاث والدراسات في مختلف مجالات
+        الفيزياء، وتبادل الخبرات بين الباحثين، ومناقشة التطورات الحديثة وتطبيقاتها بالمركز القومى للبحوث - معهد البحوث الفيزيقية.
+      </p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <span class="icon">🔬</span>
+        <h3>أبحاث علمية</h3>
+        <p>عرض أحدث الأبحاث والدراسات في الفيزياء النظرية والتطبيقية.</p>
+      </div>
+
+      <div class="card">
+        <span class="icon">🤝</span>
+        <h3>تعاون علمي</h3>
+        <p>بناء شراكات بين الباحثين والجامعات ومراكز البحث.</p>
+      </div>
+
+      <div class="card">
+        <span class="icon">🎓</span>
+        <h3>تطوير الطلاب</h3>
+        <p>تمكين طلاب العلوم من التعرف على التوجهات البحثية الحديثة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="topics">
+  <div class="container">
+    <div class="section-title">
+      <h2>محاور المؤتمر</h2>
+      <p>يرحب المؤتمر بالأبحاث في المجالات التالية:</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>الفيزياء النظرية</h3>
+        <p>الميكانيكا الكمومية، النسبية، فيزياء الجسيمات، والنماذج النظرية.</p>
+      </div>
+
+      <div class="card">
+        <h3>الفيزياء التطبيقية</h3>
+        <p>الإلكترونيات، المواد المتقدمة، الطاقة المتجددة، البلورات السائلة، والاستشعار.</p>
+      </div>
+
+      <div class="card">
+        <h3>الفيزياء الطبية</h3>
+        <p>التصوير الطبي، العلاج الإشعاعي، والقياسات الطبية.</p>
+      </div>
+
+      <div class="card">
+        <h3>الفيزياء الفلكية</h3>
+        <p>الفلك، الكون، الأجرام السماوية، والفيزياء الفلكية.</p>
+      </div>
+
+      <div class="card">
+        <h3>الفيزياء الحاسوبية</h3>
+        <p>المحاكاة العددية، الذكاء الاصطناعي، والنمذجة الفيزيائية.</p>
+      </div>
+
+      <div class="card">
+        <h3>فيزياء المواد</h3>
+        <p>أشباه الموصلات، النانو، المغناطيسية، والخواص البصرية.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="program" class="program">
+  <div class="container">
+    <div class="section-title">
+      <h2>البرنامج الزمني</h2>
+      <p>اليوم الأول – 15 أبريل 2027</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time">09:00</div>
+        <div>
+          <h3>التسجيل والاستقبال</h3>
+          <p>استقبال المشاركين وتوزيع حقائب المؤتمر.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time">10:00</div>
+        <div>
+          <h3>الافتتاح الرسمي</h3>
+          <p>كلمة رئيس المؤتمر وممثلي الجهات المنظمة.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time">11:00</div>
+        <div>
+          <h3>المحاضرة الرئيسية</h3>
+          <p>تطورات حديثة في فيزياء المواد والتطبيقات التكنولوجية.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time">01:00</div>
+        <div>
+          <h3>استراحة وعرض الملصقات</h3>
+          <p>فرصة للتواصل العلمي بين الباحثين والطلاب.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time">02:00</div>
+        <div>
+          <h3>جلسات الأبحاث</h3>
+          <p>عرض الأبحاث المحكمة ومناقشتها.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="speakers">
+  <div class="container">
+    <div class="section-title">
+      <h2>المتحدثون الرئيسيون</h2>
+      <p>نخبة من الباحثين والأساتذة في مجالات الفيزياء.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card speaker">
+        <img src="https://i.pravatar.cc/150?img=12" alt="متحدث">
+        <h3>د. أحمد محمد</h3>
+        <p>أستاذ الفيزياء النظرية</p>
+      </div>
+
+      <div class="card speaker">
+        <img src="ahmad.jpeg" alt="متحدث">
+        <h3>د. أحمد لبيب</h3>
+        <p>أستاذ فيزياء البلورات السائلة</p>
+      </div>
+
+      <div class="card speaker">
+        <img src="diaa.jpeg" alt="متحدث">
+        <h3>د. خالد يوسف</h3>
+        <p>أستاذ الفيزياء الفلكية</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="call" class="call">
+  <div class="container">
+    <div class="section-title">
+      <h2 style="color:#fff">دعوة للمشاركة بالأبحاث</h2>
+      <p style="color:#eee">
+        ندعو الباحثين والطلاب والمهتمين لتقديم أبحاثهم وملخصاتهم للمشاركة في المؤتمر.
+      </p>
+    </div>
+
+    <ul>
+      <li>📌 آخر موعد لتقديم الملخص: 1 فبراير 2027</li>
+      <li>📩 إرسال الملخص إلى: physics.conference@institute.edu</li>
+      <li>📄 لا يتجاوز الملخص 300 كلمة</li>
+      <li>🔔 إشعار القبول: 20 فبراير 2027</li>
+    </ul>
+
+    <a href="mailto:physics.conference@institute.edu" class="btn">أرسل ملخص بحثك</a>
+  </div>
+</section>
+
+<section id="register">
+  <div class="container">
+    <div class="section-title">
+      <h2>التسجيل في المؤتمر</h2>
+      <p>يرجى تعبئة النموذج التالي للمشاركة أو الحضور.</p>
+    </div>
+
+    <form onsubmit="event.preventDefault(); alert('تم إرسال طلب التسجيل بنجاح');">
+      <label for="name">الاسم الكامل</label>
+      <input type="text" id="name" required placeholder="اكتب اسمك الكامل">
+
+      <label for="email">البريد الإلكتروني</label>
+      <input type="email" id="email" required placeholder="example@email.com">
+
+      <label for="phone">رقم الهاتف</label>
+      <input type="tel" id="phone" placeholder="05xxxxxxxx">
+
+      <label for="type">نوع المشاركة</label>
+      <select id="type">
+        <option>حضور فقط</option>
+        <option>عرض بحث شفهي</option>
+        <option>عرض ملصق علمي</option>
+        <option>حضور عن بُعد</option>
+      </select>
+
+      <label for="notes">ملاحظات</label>
+      <textarea id="notes" rows="4" placeholder="اكتب أي ملاحظات إن وجدت"></textarea>
+
+      <button type="submit">إرسال طلب التسجيل</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <h3>المؤتمر الدولي للفيزياء والتطبيقات الحديثة</h3>
+    <p>📞 0500000000 | 📧 physics.conference@institute.edu</p>
+    <p>© 2027 جميع الحقوق محفوظة للمعهد</p>
+    <p><a href="#top">العودة إلى الأعلى</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
